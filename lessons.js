@@ -1,4 +1,4 @@
-// PhonoLearn — Lesson Curriculum
+// PhonoLab — Lesson Curriculum
 // Phoneme-first curriculum for beginner Spanish learners
 
 const LESSONS = [
