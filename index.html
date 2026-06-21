@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PhonoLearn — Spanish Pronunciation Practice</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ─── Error Banner ──────────────────────────────────────────────────────── -->
+<div id="error-banner" class="hidden" role="alert"></div>
+
+<!-- ─── Header ───────────────────────────────────────────────────────────── -->
+<header class="site-header">
+  <div class="logo">Phono<span>Learn</span></div>
+  <nav class="header-nav">
+    <button class="nav-btn" onclick="renderHome()">Lessons</button>
+    <button class="nav-btn" onclick="renderTeacher()">Teacher View</button>
+  </nav>
+</header>
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     HOME VIEW
+═══════════════════════════════════════════════════════════════════════════ -->
+<main id="view-home" class="view">
+  <div class="home-hero">
+    <h1>Spanish Pronunciation Practice</h1>
+    <p>Choose a lesson, listen to the model, then record yourself. Work through each phoneme at your own pace.</p>
+  </div>
+  <p class="section-label">Phoneme Lessons — Level 1 to 6</p>
+  <div id="lesson-grid" class="lesson-grid"></div>
+</main>
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     LESSON VIEW
+═══════════════════════════════════════════════════════════════════════════ -->
+<main id="view-lesson" class="view hidden">
+
+  <!-- Header row -->
+  <div class="lesson-header">
+    <button class="btn-back" onclick="renderHome()">← Lessons</button>
+    <span id="lesson-title-bar"></span>
+    <span id="progress-text"></span>
+  </div>
+
+  <!-- Progress bar -->
+  <div class="progress-bar">
+    <div id="progress-fill" class="progress-fill" style="width:0%"></div>
+  </div>
+
+  <!-- Word card -->
+  <div class="word-card">
+    <div class="phoneme-tag" id="phoneme-hint"></div>
+    <div class="target-word" id="target-word" aria-live="polite"></div>
+    <div class="target-translation" id="target-translation"></div>
+    <div class="word-hint" id="word-hint"></div>
+  </div>
+
+  <!-- Controls -->
+  <div class="action-row">
+    <button id="btn-listen" class="btn-listen" onclick="speakWord()">🔊 Hear it</button>
+    <button id="btn-record" class="btn-record" onclick="startRecording()">🎤 Record</button>
+  </div>
+
+  <!-- Feedback -->
+  <div id="feedback-area" class="feedback-area hidden" aria-live="polite">
+    <div class="spoken-text" id="spoken-text"></div>
+    <div class="score-display" id="score-display"></div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="nav-row">
+    <button id="btn-retry" class="btn-secondary hidden" onclick="retryWord()">↺ Try Again</button>
+    <button id="btn-next"  class="btn-primary hidden"  onclick="nextWord()">Next Word →</button>
+  </div>
+
+</main>
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     RESULTS VIEW
+═══════════════════════════════════════════════════════════════════════════ -->
+<main id="view-results" class="view hidden">
+  <div class="results-header">
+    <h2 id="results-lesson-title"></h2>
+    <p id="results-avg"></p>
+  </div>
+  <div id="results-list" class="results-list"></div>
+  <div class="results-actions">
+    <button class="btn-secondary" onclick="renderHome()">← All Lessons</button>
+    <button class="btn-primary"   onclick="startLesson(state.lessonId)">Practice Again</button>
+  </div>
+</main>
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     TEACHER VIEW
+═══════════════════════════════════════════════════════════════════════════ -->
+<main id="view-teacher" class="view hidden">
+  <div class="teacher-header">
+    <h2>Teacher Dashboard</h2>
+    <div class="teacher-actions">
+      <button class="btn-export" onclick="exportCSV()">⬇ Export CSV</button>
+      <button class="btn-danger" onclick="confirmClear()">Clear Data</button>
+    </div>
+  </div>
+  <div id="teacher-summary"></div>
+  <div id="teacher-detail"></div>
+</main>
+
+<!-- ─── Scripts ────────────────────────────────────────────────────────────── -->
+<script src="lessons.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
