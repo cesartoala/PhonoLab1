@@ -37,7 +37,7 @@ const LESSONS = [
     description: "Spanish /p/ has no puff of air (aspiration) unlike English 'p'.",
     level: 3,
     words: [
-      { word: "pan",    translation: "bread",   hint: "No puff of air after the 'p'" },
+      { word: "padre",    translation: "father",   hint: "No puff of air after the 'p'" },
       { word: "papá",   translation: "dad",     hint: "Two /p/ sounds — stay unaspirated" },
       { word: "puerta", translation: "door",    hint: "Feel no air on your hand" },
       { word: "pelo",   translation: "hair",    hint: "Crisp /p/ start" },
