@@ -1,4 +1,4 @@
-// PhonoLearn — App Logic
+// PhonoLab — App Logic
 // Browser-only, Web Speech API, localStorage
 
 // ─── State ───────────────────────────────────────────────────────────────────
